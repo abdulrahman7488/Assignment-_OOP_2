@@ -2,7 +2,74 @@
 
 namespace MovieTicketBookingSystem
 {
-   
+
+
+    /*
+
+   Part 01 
+ 
+
+   Q1:
+   a) Problems with this design from encapsulation perspective:
+      - Using public fields allows direct access and modification from outside the class.
+      - No control over invalid values (e.g. negative price, empty name).
+      - Any future change (adding validation or logic) will affect all code using the class.
+
+   b) How to fix the class:
+      - Make all fields private.
+      - Use public properties to access the fields.
+      - Add validation logic inside property setters.
+
+   c) Why exposing fields directly is bad practice:
+      - Breaks encapsulation.
+      - Reduces data safety.
+      - Makes the class hard to maintain and extend.
+      - Properties provide flexibility such as validation, read-only access, and calculated values.
+
+   -------------------------------------------------
+
+   Q2:
+   Difference between Field and Property in C#:
+   - Field is a variable that stores data directly.
+   - Property is a member that provides controlled access to data.
+   - Property can contain logic, field cannot.
+
+   Yes, a property can contain logic.
+
+   Example of a read-only calculated property:
+       public double PriceAfterTax
+       {
+           get { return Price * 1.14; }
+       }
+
+   -------------------------------------------------
+
+   Q3:
+   a) this[int index] is called an Indexer.
+      It allows accessing class objects like an array.
+
+   b) Writing register[10] = "Ali";
+      - Causes runtime exception if index is out of range.
+      - To make it safer, validate index before accessing array.
+
+   c) Can a class have more than one indexer?
+      - Yes, if they have different parameter types.
+      Example:
+          this[int index]
+          this[string name]
+
+   -------------------------------------------------
+
+   Q4:
+   a) static keyword on TotalOrders:
+      - Belongs to the class itself, not to an object.
+      - Shared among all instances.
+      - Item field is an instance member (each object has its own copy).
+
+   b) Can a static method access Item directly?
+      - No.
+      - Because static methods cannot access instance members without an object.
+   */
 
     public enum TicketType
     {
